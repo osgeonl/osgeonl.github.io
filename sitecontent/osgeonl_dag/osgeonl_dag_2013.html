@@ -1,0 +1,1501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>OSGeo.nl Dag - 13 november 2013 - TU Delft</title>
+
+    <meta name="Author" content="Just van den Broecke">
+    <meta name="keywords"
+          content="osgeo, osgeo.org, open source, geo, gis, nederland, openstreetmap, gdal, ogr, geonetwork, openlayers, geoserver, mapproxy, geowebcache">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        <!--
+        a:link {
+            color: #FFFFFF;
+            font-weight: bolder;
+            text-decoration: none
+        }
+
+        a:visited {
+            color: #EEEEEE
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        h2 {
+            margin-top: 2px;
+            margin-bottom: 0px;
+            padding-bottom: 0px
+        }
+
+        .wit a:link {
+            color: #49A942;
+            font-weight: bolder;
+            text-decoration: none
+        }
+
+        .wit a:visited {
+            color: #49A942
+        }
+
+        .wit a:hover {
+            text-decoration: underline
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .unhidden {
+            display: block;
+        }
+
+        .popup a {
+            color: green;
+        }
+
+        .popup {
+            font-size: 12px;
+        }
+
+        .speaker-photo {
+            float: left;
+            padding-left: 2px;
+            padding-right: 8px;
+            padding-bottom: 6px;
+        }
+
+        -->
+    </style>
+
+    <script type="text/javascript">
+
+        function toggleHide(divID) {
+            var item = document.getElementById(divID);
+            if (item) {
+                if (item.className == 'hidden') {
+                    item.className = 'unhidden';
+                } else
+                    item.className = 'hidden';
+            }
+        }
+
+        function showBio(e) {
+            var posx = 0;
+            var posy = 0;
+            if (!e) var e = window.event;
+            if (e.pageX || e.pageY) {
+                posx = e.pageX;
+                posy = e.pageY;
+            }
+            else if (e.clientX || e.clientY) {
+                posx = e.clientX + document.body.scrollLeft
+                        + document.documentElement.scrollLeft;
+                posy = e.clientY + document.body.scrollTop
+                        + document.documentElement.scrollTop;
+            }
+
+            alert('x=' + posx + 'y=' + posy);
+            // posx and posy contain the mouse position relative to the document
+            // Do something with this information
+        }
+    </script>
+</head>
+
+<body style="margin: 0; font-family: Arial,sans-serif;">
+
+<table cellspacing="0" cellpadding="12" border="0" width="100%">
+    <tr>
+        <td style="background-color:#FFFFFF; color:#49A942;">
+            <a href="index.html"><img src="media/Logo-osgeo.png" width="200" alt="OSGeo.nl logo"></a>
+        </td>
+        <td style="width:50%;background-color:#FFFFFF; color:#49A942;">
+            <span style="font-size:48px; font-weight: bold">OSGeo.nl Dag</span>
+            <br/>
+            <span style="font-size:32px">13 nov 2013 - Delft</span>
+        </td>
+        <td style="background-color:#FFFFFF; color:#49A942;">
+            <a href="http://www.tudelft.nl"><img src="media/osgeonldag13/logo-tudelft.gif" alt="TU Delft"></a>
+        </td>
+        <td style="width:25%; background-color:#49A942; color:#FFFFFF; font-size:80%; ">
+            <h3 style="margin-bottom:0px;margin-top:0px;">Contact</h3>
+            <a href="http://osgeo.nl" target="_blank">www.osgeo.nl</a><br/>
+            <a href="mailto:info@osgeo.nl">info@osgeo.nl</a><br/>
+            <a href="http://www.twitter.com/osgeonl" target="_blank">@osgeonl</a> <a
+                href="https://twitter.com/#!/search/%23osgeonl">#osgeonl</a><br/>
+        </td>
+    </tr>
+
+</table>
+
+<table cellspacing="0" cellpadding="0" border="0" width="100%"
+       style="color:#FFFFFF; background-color:#49A942; text-align:center">
+
+    <tr>
+        <td>
+            <a href="http://www.flickr.com/photos/tags/osgeonldag12/show/"><img
+                    src="media/osgeonldag13/thumbs/osgeonldag12-thumb-02.jpg"
+                    alt="foto's OSGeo.nl Dag 2012"/></a>
+        </td>
+        <td>
+            <a href="http://www.flickr.com/photos/justb4/9880660344"><img
+                    src="media/osgeonldag13/thumbs/foss4g13-thumb-03.jpg"
+                    alt="foto's FOSS4G 2013"/></a>
+        </td>
+         <td>
+            <a href="http://www.flickr.com/photos/tags/osgeonldag12/show/"><img
+                    src="media/osgeonldag13/thumbs/osgeonldag12-thumb-04.jpg" alt="foto's OSGeo.nl Dag 2012"/></a>
+        </td>
+        <td>
+            <a href="http://www.flickr.com/photos/tags/osgeonldag12/show/"><img
+                    src="media/osgeonldag13/thumbs/osgeonldag12-thumb-06.jpg" alt="foto's OSGeo.nl Dag 2012"/></a>
+        </td>
+        <td>
+             <a href="http://www.tudelft.nl/"><img
+                     src="media/osgeonldag13/thumbs/gebouw8-tu-thumb-04.jpg" alt="Gebouw 8 TUD"/> </a>
+         </td>
+        <td>
+            <a href="http://www.flickr.com/photos/tags/osgeonldag12/show/"><img
+                    src="media/osgeonldag13/thumbs/osgeonldag12-thumb-07.jpg" alt="foto's OSGeo.nl Dag 2012"/></a>
+        </td>
+        <td>
+            <a href="http://www.flickr.com/photos/tags/osgeonldag12/show/"><img
+                    src="media/osgeonldag13/thumbs/osgeonldag12-thumb-01.jpg"
+                    alt="foto's OSGeo.nl Dag 2012"/></a>
+        </td>
+        <td>
+            <a href="http://www.flickr.com/photos/tags/osgeonldag12/show/"><img
+                    src="media/osgeonldag13/thumbs/osgeonldag12-thumb-08.jpg"
+                    alt="foto's OSGeo.nl Dag 2012"/></a>
+        </td>
+
+        <td>
+            <a href="http://www.flickr.com/photos/tags/osgeonldag12/show/"><img
+                    src="media/osgeonldag13/thumbs/osgeonldag12-thumb-09.jpg" alt="foto's OSGeo.nl Dag 2012"/></a>
+        </td>
+        <td>
+            <a href="http://www.flickr.com/photos/tags/osgeonldag12/show/"><img
+                    src="media/osgeonldag13/thumbs/osgeonldag12-thumb-10.jpg" alt="foto's OSGeo.nl Dag 2012"/></a>
+        </td>
+    </tr>
+</table>
+
+<div id="hor_wit2" style="height:2px; clear:both; background-color:#ffffff">
+</div>
+
+<table cellspacing="16" cellpadding="6" border="0" width="100%"
+       style="background-color:#ffffff; text-align:left; font-size:80%;">
+
+<tr>
+
+<td style="width:75%;color:#FFFFFF; background-color:#49A942;font-size:90%;vertical-align: top">
+<table cellspacing="0" cellpadding="10" border="1" style="border-color: #FFFFFF">
+<tr>
+    <td style="width:5%">
+        <span>09:00</span>
+    </td>
+    <td colspan="3" style="text-align:center;">
+        <h2> Ontvangst, registratie en koffie</h2>
+    </td>
+</tr>
+<tr>
+    <td style="width:5%">
+        <span>09:30</span>
+    </td>
+    <td colspan="3">
+        <a href="http://www.linkedin.com/in/weijden" target="_blank"><img class="speaker-photo"
+                                                                          src="media/osgeonldag12/sprekers/gert-jan-s.jpg"
+                                                                          alt="Gert-Jan van der Weijden"/></a>
+
+        <h2>Intro: Wegwijs in Open Geo</h2>
+
+        <div><a href="http://www.linkedin.com/in/weijden" target="_blank">Gert-Jan van der Weijden</a> - <a href="http://osgeo.nl">OSGeo.nl</a>
+            <!-- -
+            <a href="http://www.slideshare.net/justb4/how-to-get-rich-and-save-the-world-with-open-source-keynote-osgeonl-day">[SLIDES]</a>  -->
+
+            <p> Er bestaat een grote behoefte aan informatie over techniek, toepassingen op het gebied van
+                open source geo software, de mogelijkheden die dat biedt voor het benutten van open data
+                en de rol van open standaarden daarbij. OSGeo 2013 biedt aandacht voor toepassingen op
+                het gebied van onder meer stedenbouw, hydrologie en databeheer en het gebruik van
+                basisregistraties.
+            </p>
+        </div>
+    </td>
+</tr>
+
+<tr>
+    <td style="width:5%">
+        <span>09:40</span>
+    </td>
+    <td colspan="3">
+        <a href="http://www.bastiaanvanloenen.nl" target="_blank"><img class="speaker-photo"
+                                                                       src="media/osgeonldag13/sprekers/bastiaanvanloenen-s.jpg"
+                                                                       alt="Bastiaan van Loenen"/></a>
+
+        <h2>Keynote: Kenniscentrum Open Data</h2>
+
+        <div><a href="http://www.bastiaanvanloenen.nl">Bastiaan van Loenen</a> <a href="http://osgeo.nl">, Technische
+            Universiteit Delft - Bouwkunde/OTB</a>
+            <!-- -
+            <a href="http://www.slideshare.net/justb4/how-to-get-rich-and-save-the-world-with-open-source-keynote-osgeonl-day">[SLIDES]</a>  -->
+
+            <p>
+                Open data staat hoog op de beleidsagenda. Dat is niet verwonderlijk gezien de vele
+                miljarden euro’s aan extra economische waardecreatie die aan open data worden
+                toegeschreven. Van Loenen zal in zijn presentatie ingaan op de vraag waarom die miljarden
+                aan extra baten er (nog) niet zijn. Hij zal ingaan op de stappen die moeten worden gezet
+                door aanbieders en gebruikers van open data om de huidige barrières van open data te
+                slechten. Die kennis en ervaring wordt gebundeld door het Kenniscentrum Open Data
+                (samenwerking tussen Bouwkunde/OTB en TNO) dat zich richt op de bestuurlijk-juridische
+                vraagstukken met als doel de data beter te benutten.
+
+
+            </p>
+        </div>
+    </td>
+</tr>
+
+<tr>
+    <td style="width:5%">
+        <span>10:00</span>
+    </td>
+    <td colspan="3">
+        <a href="http://www.linkedin.com/in/robvdv" target="_blank"><img class="speaker-photo"
+                                                                         src="media/osgeonldag13/sprekers/robvdvelde2-s.jpg"
+                                                                         alt="Rob van de Velde"/></a>
+
+        <h2>Keynote: Verwantschap tussen open data, open standaarden en open source</h2>
+
+        <div><a href="http://www.linkedin.com/in/robvdv">Rob van de Velde</a>, <a
+                href="http://www.geonovum.nl">Geonovum</a>
+            <!-- -
+            <a href="http://www.slideshare.net/justb4/how-to-get-rich-and-save-the-world-with-open-source-keynote-osgeonl-day">[SLIDES]</a>  -->
+
+            <p>
+                Van de Velde kiest in zijn presentatie het perspectief van een open overheid, die met
+                (geografische) kennis en informatie op gelijke voet staat met burgers en bedrijven, en daar
+                waar nodig een extra handje helpt. Overheidsdata actief openbaar maken en de keuze voor
+                open standaarden dragen daar aan bij. Hij gaat in op de bereikte resultaten en bespreekt de
+                verwantschap met de ontwikkeling van open source software vanuit zijn ervaring bij
+                Geonovum en OGC. Tenslotte laat hij zijn gedachten gaan over de inhoudelijke uitdagingen
+                voor de komende jaren.
+
+
+            </p>
+        </div>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <span>10:30-11:00</span>
+    </td>
+    <td colspan="3" style="text-align:center;">
+        <h2>Pauze</h2>
+    </td>
+</tr>
+<tr>
+    <td style="width:5%">
+        <span>&nbsp;</span>
+    </td>
+    <td style="width:32%" valign="top">
+        <a href="http://www.otb.tudelft.nl/en/about-otb/staff/alle-medewerkers/verbree-edward/" target="_blank"><img class="speaker-photo"
+                                                                          src="media/osgeonldag13/sprekers/edwardverbree-s.jpg"
+                                                                          alt="Edward Verbree"/></a>
+
+
+        <h2>Sessie 1 - OSGeo & Hydrologie</h2> <br/>
+         Moderator: <a href="http://www.otb.tudelft.nl/en/about-otb/staff/alle-medewerkers/verbree-edward/" target="_blank">Edward Verbree</a>
+    </td>
+
+    <td style="width:31%" valign="top">
+         <a href="http://www.linkedin.com/profile/view?id=1428350" target="_blank"><img class="speaker-photo"
+                                                                          src="media/osgeonldag13/sprekers/barendkobben-s.jpg"
+                                                                          alt="Barend Köbben"/></a>
+
+
+        <h2>Sessie 2 - OSGeo en OSM </h2> <br/>
+         Moderator: <a href="http://www.linkedin.com/profile/view?id=1428350" target="_blank">Barend Köbben</a>
+    </td>
+
+    <td style="width:32%" valign="top">
+        <a href="http://www.linkedin.com/in/wilkoquak" target="_blank"><img class="speaker-photo"
+                                                                          src="media/osgeonldag13/sprekers/wilkoquak-s.jpg"
+                                                                          alt="Wilko Quak"/></a>
+
+
+        <h2>Workshops</h2> <br/>
+         Ondersteuning/aanspreekpunt: <a href="http://www.linkedin.com/in/wilkoquak" target="_blank">Wilko Quak</a>
+    </td>
+
+</tr>
+
+<tr>
+    <td>
+        <span>11:00</span>
+    </td>
+    <td valign="top">
+        <a href="http://www.linkedin.com/pub/han-van-veldhuizen" target="_blank"><img class="speaker-photo"
+                                                                                      src="media/osgeonldag13/sprekers/hanvanveldhuizen-s.jpg"
+                                                                                      alt="Han van Veldhuizen"/></a>
+
+        <h2>Van ‘closed-source’ naar ‘open-source’ modelleer software: lessons learned</h2>
+
+        <div><a href="http://www.linkedin.com/pub/han-van-veldhuizen">Han van Veldhuizen</a> <a
+                href="http://www.deltares.nl/">Deltares</a>
+            <!-- -
+            <a href="http://www.slideshare.net/justb4/how-to-get-rich-and-save-the-world-with-open-source-keynote-osgeonl-day">[SLIDES]</a>  -->
+
+            <p>
+
+                Deltares voert een actief beleid m.b.t. het onder open-source beschikbaar stellen van haar
+                software producten. In 2011 kwam Delft3D, het vlaggenschip op het gebied van 2D/3D
+                modelleren van stroming, sediment transport, morfologie en waterkwaliteit, als open-source
+                beschikbaar. Tot aan 2011 werd Delft3D als closed-software product verkocht. Aan deze
+                beslissing is een heel proces vooraf gegaan. In deze presentatie wordt ingegaan op het
+                waarom van deze beslissing, de gevolgen voor het business model en wat het Deltares tot
+                nu toe gebracht heeft.
+
+            </p>
+        </div>
+
+    </td>
+    <td valign="top">
+        <a href="http://www.goudappel.nl/adviseurs/dirk-bussche" target="_blank"><img class="speaker-photo"
+                                                                                      src="media/osgeonldag13/sprekers/dirkbussche-s.jpg"
+                                                                                      alt="Dirk Bussche"/></a>
+
+        <h2>Open Street Map for Professionals</h2>
+
+        <div><a href="http://www.goudappel.nl/adviseurs/dirk-bussche">Dirk Bussche</a> <a
+                href="http://www.goudappel.nl">Goudappel Coffeng</a>
+            <!-- -
+            <a href="http://www.slideshare.net/justb4/how-to-get-rich-and-save-the-world-with-open-source-keynote-osgeonl-day">[SLIDES]</a>  -->
+
+            <p>
+
+                Er zijn goede redenen om <a href="http://openstreetmap.org">OpenStreetMap</a> gegevens ook te
+                gebruiken als basis voor commerciële producten. In deze sessie
+                wordt ingegaan op de uitdagingen, zoals onevenwichtige datakwaliteit
+                (perfect en gedetailleerd hier en knullige edits daar), anarchistische
+                definities en dan nog een licentie die niet alles toestaat.
+                Aan de andere kant een zeer flexibel datamodel, vrije software voor een eigen
+                tileserver, veldinventarisatie, routing en analyses en de mogelijkheid omissies
+                in de data zelf te verhelpen - en dat graag in OSM zelf zodat iedereen er baat bij
+                heeft. In deze sessie zullen wij de visie achter OSM begrijpen, en technische en
+                juridische details belichten die nodig zijn voor een afweging voor welke projecten
+                OSM de juiste keuze is.
+
+            </p>
+        </div>
+
+    </td>
+    <td valign="top">
+        <a href="http://waag.org/en/person/bert" target="_blank"><img class="speaker-photo"
+                                                                      src="media/osgeonldag13/sprekers/bertspaan-s.jpg"
+                                                                      alt="Bert Spaan"/></a>
+
+        <h2>Workshop A: TileMill</h2>
+
+        <div><a href="http://waag.org/en/person/bert">Bert Spaan</a> <a
+                href="http://waag.org">Waag Society - Institute for art, science and technology</a>
+            <!-- -
+            <a href="http://www.slideshare.net/justb4/how-to-get-rich-and-save-the-world-with-open-source-keynote-osgeonl-day">[SLIDES]</a>  -->
+
+            <p>
+                <strong>let op: deze workshop duurt een kwartier langer dan de sessies</strong><br/>
+                Dit najaar doken niet alleen de geo-vakbladen maar ook de landelijke dagbladen (NRC,
+                Volkskrant) én de diverse social media op de <a href="http://citysdk.waag.org/buildings/">bouwjarenkaart, die Waag Society op basis van
+                de BAG maakte</a>, als onderdeel van het <a href="http://www.citysdk.eu/">Europese open-dataproject CitySDK</a>.
+                Voor wie ‘m heeft gemist: kijk op <a href="http://citysdk.waag.org/buildings/">dev.citysdk.waag.org/buildings</a>.
+                In deze workshop gaan de deelnemers zélf aan de slag om met <a href="https://www.mapbox.com/tilemill/">TileMill</a> een prachtige kaart
+                voor gebruik op het Web te maken. Daarvoor wordt het proces doorlopen van het
+                verzamelen van de “ruwe” open data (onder meer de BAG, uit PDOK en OpenStreetMap) en
+                het “panklaar” maken daarvan (met onder andere de toolkit <a href="http://nlextract.nl">NLExtract</a>). Daarna kan de
+                eigen creativiteit worden ingezet om met TileMill Delft en omgeving opnieuw op de kaart te
+                zetten.
+                Ervaring met TileMill is niet nodig, wel is het handig iets te weten van in TileMill gebruikte
+                technieken als CSS. De deelnemers aan de workshop ontvangen van tevoren een reader
+                waarin wat van die basisconcepten worden uitgelegd. Enthousiasme en creativiteit zijn de
+                belangrijkste vereisten. En…voor de mooiste producten van deze workshop hebben we nog
+                een verrassing in petto!
+
+
+            </p>
+        </div>
+    </td>
+</tr>
+
+
+<tr>
+    <td>
+        <span>11:30</span>
+    </td>
+    <td valign="top">
+        <a href="http://www.linkedin.com/in/arjenvrielink" target="_blank"><img class="speaker-photo"
+                                                                      src="media/osgeonldag13/sprekers/arjenvrielink-s.jpg"
+                                                                      alt="Arjen Vrielink"/></a>
+        <a href="http://www.linkedin.com/pub/jonas-van-schrojenstein-lantman/2/400/458" target="_blank"><img class="speaker-photo"
+                                                                       src="media/osgeonldag13/sprekers/jonasvschrojenstein-s.jpg"
+                                                                       alt="Jonas van Schrojenstein Lantman"/></a>
+        <h2>Lizard: Een totaaloplossing voor informatievoorziening in de waterwereld</h2>
+        <div>
+            <a href="http://www.linkedin.com/in/arjenvrielink">Arjen Vrielink</a> &amp;
+            <a href="http://www.nelen-schuurmans.nl/NL/bedrijfsprofiel/medewerkers/jonas-van-schrojenstein-lantman">Jonas van Schrojenstein Lantman</a>
+                        <a href="http://www.nelen-schuurmans.nl/">Nelen &amp; Schuurmans</a>
+                         <!-- -
+                         <a href="http://www.slideshare.net/justb4/how-to-get-rich-and-save-the-world-with-open-source-keynote-osgeonl-day">[SLIDES]</a>  -->
+        <p>
+            <a href="http://www.lizard.net/">Lizard</a> is een open source totaaloplossing voor informatievoorziening in de waterwereld. Het
+            eenduidig combineren van metingen, modelresultaten en kennis van deskundigen in één
+            systeem zorgt voor een beter waterbeheer. Lizard is een open source webframework,
+            geschreven in Python en Django. De kern van Lizard is een plugin mechanisme om wat voor
+            databron dan ook aan Lizard te koppelen en op een kaart te tonen.
+            Deze voordracht geeft een overzicht van de architectuur van de huidige Lizard (waarom
+            Python, waarom Django?) en praktische toepassingen zoals de nationale regenradar en het
+            Deltaportaal. Daarnaast is er aandacht voor nieuwe ontwikkelingen zoals authorisatie op
+            entiteiten binnen kaartlagen, vector tiles en client side rendering (Angular, D3js), NoSQL
+            opslag van sensor metingen (HBase, Hadoop), en snelle ontsluiting van grote hoeveelheden
+            rasterdata (bijvoorbeeld het AHN2).
+        </p>
+        </div>
+    </td>
+    <td valign="top" rowspan="2">
+        <a href="http://www.linkedin.com/profile/view?id=18576230" target="_blank"><img class="speaker-photo"
+                                                                      src="media/osgeonldag13/sprekers/raymondnijssen-s.jpg"
+                                                                      alt="Bert Spaan"/></a>
+        <h2>FOSS4G 2013 en QGIS Hackfest</h2>
+
+        <div><a href="http://www.linkedin.com/profile/view?id=18576230">Raymond Nijssen</a> -
+            <a href="http://www.opengeogroep.nl">OpenGeoGroep</a>
+             <!-- -
+             <a href="http://www.slideshare.net/justb4/how-to-get-rich-and-save-the-world-with-open-source-keynote-osgeonl-day">[SLIDES]</a>  -->
+
+
+            <p>
+                Van 17 t/m 21 september werd in Nottingham de <a href="http://2013.foss4g.org">FOSS4G 2013</a> gehouden, het jaarlijkse internationale congres van
+                <a href="http://www.osgeo.org">OSGeo</a>.
+                Dit jaar waren daar zo'n <a href="http://www.flickr.com/photos/justb4/9880660344/">30 Nederlandse deelnemers</a>.
+                Voor de Nederlanders die er niet bij waren geeft Raymond een korte impressie, in de hoop een aantal enthousiastelingen voor volgend jaar te creëren.
+            </p>
+            <p>
+
+                Voorafgaand aan dit congres was er een <a href="http://qgis.org">QGIS</a> Developer Meeting (of Hackfest) in Brighton.
+                De QGIS-community houdt deze bijeenkomsten tweemaal per jaar om samen te kunnen werken en
+                overleggen, elkaar te leren kennen, te helpen en ideeën te tonen et cetera.
+                Een impressie van de goed draaiende en groeiende community van een prachtige open source GIS-applicatie.
+            </p>
+         </div>
+
+    </td>
+    <td valign="top" rowspan="2">
+        <h2>Vervolg Workshop A: TileMill </h2><br/><strong>Let op: deze workshop duurt tot 12:30!</strong>
+
+    </td>
+
+<tr>
+    <td>
+        <span>12:00</span>
+    </td>
+    <td valign="top">
+            <h2>PC Raster</h2>
+            (korte presentatie i.p.v de workshop)
+            <p>
+            Derek Karssenberg, Kor de Jong, Universiteit Utrecht
+            </p>
+            <p>
+
+                <a href="http://pcraster.geo.uu.nl">PCRaster</a> is een raster GIS toolbox, ontwikkeld om ruimtelijke simulatiemodellen te maken.
+                De kern van PCRaster is een krachtige en zeer flexibele scripttaal, waarmee de gebruiker zelf
+                simulatiemodellen kan definiëren en executeren.
+                PCRaster is ontwikkeld aan de Universiteit Utrecht, en kent een groot aantal gebruikers in de
+                internationale onderzoekswereld en bij de grote onderzoeksinstituten (verschillende
+                universiteiten, Joint Research Center, Deltares). Deze partijen gebruiken PCRaster om
+                simulatiemodellen in te ontwikkelen, of als interface tussen verschillende modellen.
+
+                Recente uitbreidingen van PCRaster zijn een sterke integratie in Python, en zeer recent is
+                PCRaster volledig als open-source software beschikbaar.
+        </p>
+        </div>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <span>12:15-13:30</span>
+    </td>
+    <td colspan="3" style="text-align:center;">
+        <h2>Lunchpauze en bezoek aan de sponsorstands</h2>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <span>&nbsp;</span>
+    </td>
+    <td valign="top">
+        <a href="http://www.otb.tudelft.nl/en/about-otb/staff/alle-medewerkers/verbree-edward/" target="_blank"><img class="speaker-photo"
+                                                                          src="media/osgeonldag13/sprekers/edwardverbree-s.jpg"
+                                                                          alt="Edward Verbree"/></a>
+
+
+        <h2>Sessie 3: Bouw en Stedenbouw</h2>
+         Moderator: <a href="http://www.otb.tudelft.nl/en/about-otb/staff/alle-medewerkers/verbree-edward/" target="_blank">Edward Verbree</a>
+    </td>
+
+    <td valign="top">
+        <a href="http://www.linkedin.com/profile/view?id=1428350" target="_blank"><img class="speaker-photo"
+                                                                         src="media/osgeonldag13/sprekers/barendkobben-s.jpg"
+                                                                         alt="Barend Köbben"/></a>
+
+
+        <h2>Sessie 4: Overheid</h2> <br/>
+        Moderator: <a href="http://www.linkedin.com/profile/view?id=1428350" target="_blank">Barend Köbben</a>
+    </td>
+
+    <td valign="top">
+        <!-- <a href="http://www.linkedin.com/in/weijden" target="_blank"><img class="speaker-photo"
+                                                                          src="media/osgeonldag12/sprekers/gert-jan-s.jpg"
+                                                                          alt="Gert-Jan van der Weijden"/></a>  -->
+
+
+        <h2>Workshops</h2> <br/>
+        <strong>Let op: workshop PC Raster is omgezet naar een korte presentatie om 12.00u </strong></td>
+
+</tr>
+
+<tr>
+    <td>
+        <span>13:30</span>
+    </td>
+    <td valign="top">
+        <a href="http://www.linkedin.com/profile/view?id=18576230" target="_blank"><img class="speaker-photo"
+                                                                      src="media/osgeonldag13/sprekers/leonvanberlo-s.jpg"
+                                                                      alt="Léon van Berlo"/></a>
+        <h2>OpenBIM </h2>
+
+        <div><a href="http://www.linkedin.com/in/leonvanberlo">Léon van Berlo</a> -
+            <a href="http://www.tno.nl">TNO</a>
+             <!-- -
+             <a href="http://www.slideshare.net/justb4/how-to-get-rich-and-save-the-world-with-open-source-keynote-osgeonl-day">[SLIDES]</a>  -->
+
+            <p>
+                 <a href="http://www.openbim.org">OpenBIM</a> is een relatief nieuwe term in de
+                 bouwsector. BIM staat meestal voor ‘Bouw
+                 Informatie Model’, maar afhankelijk van het publiek wordt het ook wel ‘Bouwwerk Informatie
+                 Modellering’ of ‘Bouwmodel Informatie Management’ genoemd en alle combinaties daarvan.
+                 Terwijl sommige bedrijven in de bouwsector nog steeds zoekende zijn wat BIM voor hen
+                 betekent, is het ondertussen niet meer weg te denken. Zelfs de geowereld heeft aandacht
+                 voor BIM. Onder druk van marketing ontstaan daardoor nieuwe termen als ‘vendorBIM’ en
+                 ‘openBIM’. OpenBIM zou op het eerste gezicht de voorkeur hebben, maar als je verder kijkt
+                 lijkt dit het meest gesloten initiatief in de BIM wereld. Soms worden OpenBIM of de open
+                 BIM data standaarden ook verward met open source. Open source is in de bouwwereld nog
+                 lang niet zo’n gemeengoed als in de geowereld.
+                 Deze presentatie zal gaan over OpenBIM, open BIM standaarden en open source BIM tools.
+                 Het geeft een overzicht van de achterliggende concepten van open BIM standaarden en de
+                 samenhang met open GIS standaarden en open source tools.
+             </p>
+
+         </div>
+
+
+
+    </td>
+    <td valign="top">
+        <a href="http://www.linkedin.com/profile/view?id=17693036" target="_blank"><img class="speaker-photo"
+                                                                      src="media/osgeonldag13/sprekers/markverschuur-s.jpg"
+                                                                      alt="Mark Verschuur"/></a>
+        <a href="http://www.linkedin.com/in/baasb" target="_blank"><img class="speaker-photo"
+                                                                      src="media/osgeonldag13/sprekers/bartbaas-s.jpg"
+                                                                      alt="Bart Baas"/></a>
+        <div>
+        <h2>Gemeente </h2>
+        <a href="http://www.linkedin.com/profile/view?id=17693036">Mark Verschuur, Gemeente Rotterdam</a> en
+            <a href="http://www.linkedin.com/in/baasb">Bart Baas, Gemeente Zaanstad</a>
+        <p>
+            Zij zullen vertellen waarom Zaanstad en Rotterdam gekozen hebben voor open source en
+            wat daarvan de gevolgen zijn voor beide gemeentelijke organisaties. Daarnaast vertellen zij
+            over het belang van open standaarden bij het vrij laten stromen van data.
+        </p>
+        </div>
+
+    </td>
+    <td valign="top">
+        <h2></h2>
+ <!--       (Let op: deze workshop begint een half uur eerder als de sessies)
+        Derek Karssenberg, Kor de Jong, Universiteit Utrecht, Willem van Deursen, Carthago
+        Consultancy
+        <p>
+
+            <a href="http://pcraster.geo.uu.nl">PCRaster</a> is een raster GIS toolbox, ontwikkeld om ruimtelijke simulatiemodellen te maken.
+            De kern van PCRaster is een krachtige en zeer flexibele scripttaal, waarmee de gebruiker zelf
+            simulatiemodellen kan definiëren en executeren.
+            PCRaster is ontwikkeld aan de Universiteit Utrecht, en kent een groot aantal gebruikers in de
+            internationale onderzoekswereld en bij de grote onderzoeksinstituten (verschillende
+            universiteiten, Joint Research Center, Deltares). Deze partijen gebruiken PCRaster om
+            simulatiemodellen in te ontwikkelen, of als interface tussen verschillende modellen.
+
+            Recente uitbreidingen van PCRaster zijn een sterke integratie in Python, en zeer recent is
+            PCRaster volledig als open-source software beschikbaar.
+
+            De PCRaster workshop ziet er als volgt uit:
+            - Inleiding PCRaster (20 minuten, praatje). Hands-on deel:
+            - Visualisatie met Aguila
+            - Map Algebra in PCRaster Python
+            - Dynamic modelling (Python framework)
+            - Discussie
+
+            De voorbeelden in de workshop zullen vooral hydrologie gerelateerd zijn, maar toepassingen
+            van PCRaster zijn te vinden bij veel andere onderwerpen, waaronder ecologie,
+            landschapsontwikkeling, modellen voor landgebruik etcetera.
+        </p>   -->
+
+    </td>
+
+</tr>
+
+<tr>
+    <td>
+        <span>14:00</span>
+    </td>
+    <td valign="top">
+        <a href="http://www.linkedin.com/in/dannyedwards" target="_blank"><img class="speaker-photo"
+                                                                       src="media/osgeonldag13/sprekers/dannyedwards-s.jpg"
+                                                                       alt="Danny Edwards"/></a>
+        <h2>Space Syntax, Urban Network Analysis &amp; Design </h2>
+
+         <div><a href="http://www.linkedin.com/in/dannyedwards">Danny Edwards</a> -
+             <a href="http://www.edwards.nl">Edwards Stadsontwerp</a>
+              <!-- -
+              <a href="http://www.slideshare.net/justb4/how-to-get-rich-and-save-the-world-with-open-source-keynote-osgeonl-day">[SLIDES]</a>  -->
+
+             <p>
+                  Netwerktheorieën hebben het afgelopen decennium enorme stappen voorwaarts gezet.
+                  In Nederland is daarvoor binnen ontwerpdisciplines veel belangstelling op conceptueel- filosofisch niveau.
+                  Het ontbrak echter aan concreet toepasbaar gereedschap. Space syntax wil dit
+                  hiaat in de beroepspraktijk vullen. Space syntax biedt een theorie, onderzoeksmethode én bijbehorende open
+                  source software.
+                  In Nederland nog nauwelijks praktisch ingezet, maar in enkele andere landen al gangbaar geworden.
+                  Space syntax stelt dat het stedelijke netwerk van straten, pleinen, grachten, wegen en stegen een cruciale
+                  factor is voor het
+                  functioneren van de stad als sociale gemeenschap. Haal dat netwerk weg en gans het raderwerk staat stil.
+                  Logisch, want omgekeerd
+                  wordt dat netwerk aangelegd, onderhouden en ontwikkeld om ons leven in de stad aan de praat te houden.
+                  Danny Edwards geeft een korte overview van de theorie en de praktische tools die de
+                  moderne planner en ontwerper ten dienste staan. Het programma Depthmap staat daarbij centraal. Hij doet dat
+                  alles vanuit het
+                  perspectief van het kleine, zelfstandig gevestigde stedebouwkundig ontwerpbureau. Hij laat aan de hand van
+                  concrete voorbeelden
+                  uit zijn eigen workflow zien wat space syntax voor ontwerpers kan betekenen en bestrijdt tevens het
+                  misverstand dat GIS-software voor ontwerpers niet interessant is.
+              </p>
+
+
+          </div>
+
+
+    </td>
+    <td valign="top">
+        <a href="http://www.linkedin.com/in/koenrutten" target="_blank"><img class="speaker-photo"
+                                                                       src="media/osgeonldag13/sprekers/koenrutten-s.jpg"
+
+                                                                      alt="Koen Rutten"/></a>
+        <a href="http://idgis.nl" target="_blank"><img class="speaker-photo"
+                                                                       src="media/osgeonldag13/sprekers/hermanassink-s.jpg"
+
+                                                                      alt="Herman Assink"/></a>
+               <h2>INSPIRE voor Provincies</h2>
+       <div>
+            <a href="http://www.linkedin.com/in/koenrutten">Koen Rutten</a> <a href="http://www.gbo-provincies.nl/">GBO Provincies</a> &amp; <a href="http://idgis.nl">Herman Assink - IDgis</a>
+        <p>
+            We laten zien hoe de provincies samenwerken in het harmoniseren en beschikbaar stellen van hun geografische informatie.
+            We presenteren InSpider.eu als tool die ontwikkeld is als onderdeel van de provinciale geografische SDI (Inspider.eu, Flamingo Geo CMS en www.provinciaalgeoregister.nl).
+            InSpider.eu, ontwikkeld door IDgis in opdracht van de provincies,
+            heeft veel potentie voor andere samenwerkende overheden (bijv. RUD's , fuserende gemeenten, regionale samenwerkingen tussen provincies en buurgemeenten,
+            kortom alles waar meerdere partijen samen info moeten delen en publiceren).
+            We roepen dan ook op tot hergebruik van InSpider.eu.</p>
+       </div>
+
+    </td>
+    <td valign="top">
+        &nbsp;
+
+    </td>
+
+</tr>
+
+<tr>
+    <td>
+        <span>14:30-15:00</span>
+    </td>
+    <td colspan="3" style="text-align:center;">
+        <h2>Pauze</h2>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <span>&nbsp;</span>
+    </td>
+    <td valign="top">
+        <!-- <a href="http://www.linkedin.com/in/weijden" target="_blank"><img class="speaker-photo"
+                                                                          src="media/osgeonldag12/sprekers/gert-jan-s.jpg"
+                                                                          alt="Gert-Jan van der Weijden"/></a>  -->
+
+
+        <h2>Sessie 5: Data, validatie en opslag
+        </h2> <br/>
+        <!-- Moderator: <a href="http://www.linkedin.com/in/weijden" target="_blank">Gert-Jan van der Weijden</a>  -->
+    </td>
+
+    <td valign="top">
+        <a href="http://www.linkedin.com/profile/view?id=1428350" target="_blank"><img class="speaker-photo"
+                                                                          src="media/osgeonldag13/sprekers/barendkobben-s.jpg"
+                                                                          alt="Barend Köbben"/></a>
+
+
+        <h2>Sessie 6: Geoportalen en projecten</h2> <br/>
+         Moderator: <a href="http://www.linkedin.com/profile/view?id=1428350" target="_blank">Barend Köbben</a>
+
+    </td>
+
+    <td valign="top">
+        <!-- <a href="http://www.linkedin.com/in/weijden" target="_blank"><img class="speaker-photo"
+                                                                          src="media/osgeonldag12/sprekers/gert-jan-s.jpg"
+                                                                          alt="Gert-Jan van der Weijden"/></a>  -->
+
+
+        <h2>Workshops</h2> <br/>
+        <!-- Moderator: <a href="http://www.linkedin.com/in/weijden" target="_blank">Gert-Jan van der Weijden</a>  -->
+    </td>
+
+</tr>
+
+<tr>
+    <td>
+        <span>15:00</span>
+    </td>
+    <td valign="top">
+        <a href="http://www.otb.tudelft.nl/en/about-otb/staff/alle-medewerkers/ledoux-hugo/" target="_blank"><img class="speaker-photo"
+                                                                        src="media/osgeonldag13/sprekers/hugoledoux-s.jpg"
+                                                                        alt="Hugo Ledoux"/></a>
+        <a href="http://www.otb.tudelft.nl/en/about-otb/staff/alle-medewerkers/meijers-martijn" target="_blank"><img class="speaker-photo"
+                                                                        src="media/osgeonldag13/sprekers/martijnmeijers-s.jpg"
+                                                                        alt="Martijn Meijers"/></a>
+        <h2>Validation and Repair of 2D &amp; 3D Data </h2>
+
+          <div>
+              <a href="http://www.otb.tudelft.nl/en/about-otb/staff/alle-medewerkers/ledoux-hugo/">Hugo Ledoux</a>
+              en
+              <a href="http://www.otb.tudelft.nl/en/about-otb/staff/alle-medewerkers/meijers-martijn">Martijn Meijers</a>
+              <a href="http://www.otb.tudelft.nl">Technische Universiteit Delft - OTB</a>
+               <!-- -
+               <a href="http://www.slideshare.net/justb4/how-to-get-rich-and-save-the-world-with-open-source-keynote-osgeonl-day">[SLIDES]</a>  -->
+              <p>
+                  Bij de sectie GIS technologie, Technische Universiteit Delft, gaan open source software en
+                  onderzoek hand in hand. Standaardisatie in het geografische informatie domein is een belangrijk
+                  onderwerp van onderzoek. Een terugkerend thema in dit onderzoek is wat een geldige geometrische
+                  representatie is (voor opslag, gebruik en uitwisseling binnen geografische informatie systemen).
+                  Deze presentatie geeft een overzicht van de Delftse open source software prepair, pprepair en val3dity.
+                  Deze GIS tools bieden mogelijkheden voor het valideren van polygonen &amp; planaire partities (2D)
+                  en polyhedra (3D) en kunnen worden
+                  ingezet om volledig automatisch foutieve input te repareren, zodat de data daarna conformeert
+                  aan de gegeven definitie.
+              </p>
+
+           </div>
+    </td>
+    <td valign="top">
+        <a href="http://www.knmi.nl/~sdecerff" target="_blank"><img class="speaker-photo"
+                                                                       src="media/osgeonldag13/sprekers/knmi.png"
+                                                                       alt="Wim Som de Cerff"/></a>
+        <h2>Voorkant voor GeoNetwork </h2>
+
+         <div><a href="http://www.knmi.nl/~sdecerff/">Wim Som de Cerff</a> -
+             <a href="http://www.knmi.nl">KNMI</a>
+              <!-- -
+              <a href="http://www.slideshare.net/justb4/how-to-get-rich-and-save-the-world-with-open-source-keynote-osgeonl-day">[SLIDES]</a>  -->
+             <p>
+
+                 Per december 2012 is de <a href="http://www.knmi.nl">KNMI</a>
+                 dataportaal (KDC) in gebruik genomen. Bij de ontwikkeling
+                 was gebruikersvriendelijkheid voor de dataleveranciers een belangrijke eis, net als het
+                 voldoen aan (inter)nationale standaarden op het gebied van metadata en vindbaarheid van
+                 de data zelf. In de presentatie zal worden verteld hoe en waarom we voor Geonetwork
+                 gekozen hebben als metadata platform, en hoe Agile/SCRUM geholpen heeft bij het
+                 ontwikkelen van KDC. KDC maakt gebruik van de door het KNMI ontwikkelde Open Source
+                 Web Mapping Service (WMS) ADAGUC. Ook die zal worden besproken.
+
+             </p>
+
+          </div>
+    </td>
+    <td valign="top">
+        <a href="http://www.linkedin.com/pub/erik-meerburg/5/805/53a" target="_blank"><img class="speaker-photo"
+                                                                      src="media/osgeonldag13/sprekers/erikmeerburg-s.jpg"
+                                                                      alt="Erik Meerburg"/></a>
+        <h2>Workshop C: QGIS </h2>
+
+        <div><a href="http://www.linkedin.com/pub/erik-meerburg/5/805/53a">Erik Meerburg</a> -
+            <a href="http://www.geo-academie.nl">Geo Academie</a>
+             <!-- -
+             <a href="http://www.slideshare.net/justb4/how-to-get-rich-and-save-the-world-with-open-source-keynote-osgeonl-day">[SLIDES]</a>  -->
+
+            <p>
+
+                Deze workshop is bedoeld voor mensen die wel eerder met GIS gewerkt hebben maar nog
+                niet thuis zijn in QGIS, en nu wat van de specifieke zaken in QGIS willen ervaren.
+                Erik Meerburg geeft aandacht aan twee zaken die in QGIS behoorlijk anders geregeld zijn
+                dan in andere GIS-pakketten.
+
+            <p>
+
+                    <p>1. De opmaak van gegevens door middel van regelgebaseerde symbologie.
+                        In een GIS wordt een dataset of kaartlaag vaak eenvoudig gesymboliseerd: op basis van een
+                        veld met waarden wordt een kleur toegewezen, en dat is het wel zo'n beetje. In QGIS kan je
+                        veel verder gaan dan dat. Op basis van verschillende variabelen kan je regels opbouwen
+                        voor hoe je de gegevens wil weergeven. Dat kan van velden in de dataset zelf afhangen,
+                        maar ook van de schaal waarop het wordt afgebeeld. Moeilijk? Nee. We gaan het live doen! </p>
+
+                    <p> 2. Het gebruik van plugins in QGIS.
+                        QGIS heeft standaard een mooie gereedschapsset aan boord, en is schier oneindig
+                        uitbreidbaar met plugins. Er is veel te vinden. In dit deel gaan we verschillende plugins
+                        zoeken, downloaden en gebruiken. En passant nemen we een paar heel handige en/of
+                        specifiek Nederlandse plugins mee: onder andere de PDOK plugin komt aan bod. </p>
+
+         </div>
+
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <span>15:30</span>
+    </td>
+    <td valign="top">
+        <a href="http://www.linkedin.com/in/pepijnvaneeckhoudt" target="_blank"><img class="speaker-photo"
+                                                                       src="media/osgeonldag13/sprekers/pepijneeckhoudt-s.jpg"
+                                                                       alt="Pepijn van Eeckhoudt"/></a>
+        <h2>Spatialite / Geopackage </h2>
+
+         <div><a href="http://www.linkedin.com/in/pepijnvaneeckhoudt">Pepijn van Eeckhoudt</a> -
+             <a href="http://www.luciad.com/">Luciad</a>
+              <!-- -
+              <a href="http://www.slideshare.net/justb4/how-to-get-rich-and-save-the-world-with-open-source-keynote-osgeonl-day">[SLIDES]</a>  -->
+             <p>
+                 GeoPackage is een aankomende OGC standaard. Het doel van deze standaard is het
+                 definiëren van een cross-platform, leveranciersonafhankelijk geospatial dataformaat dat ook
+                 gebruikt kan worden voor off-line opslag op mobiele devices. Deze presentatie biedt een
+                 toelichting op hoog niveau van design keuzes in de specificatie. Dit zal dan vooral gaan over
+                 de verschillen ten opzichte van bestaande implementaties, zoals spatialite en mbtiles, en
+                 waarom deze verschillen er zijn.
+             </p>
+
+
+          </div>
+    </td>
+    <td valign="top">
+        <a href="http://www.linkedin.com/in/jorisvdhorst" target="_blank"><img class="speaker-photo"
+                                                                       src="media/osgeonldag13/sprekers/jorisvdhorst-s.jpg"
+                                                                       alt="Joris van der Horst"/></a>
+        <h2>Open source maatwerk maar dan standaard </h2>
+
+         <div>
+             <a href="http://www.linkedin.com/in/jorisvdhorst">Joris van der Horst</a> -
+             <a href="http://www.linkedin.com/pub/edwin-kuijer/8/584/a96">Edwin Kuijer</a>
+             <a href="http://www.vicrea.nl/">Vicrea</a>
+              <!-- -
+              <a href="http://www.slideshare.net/justb4/how-to-get-rich-and-save-the-world-with-open-source-keynote-osgeonl-day">[SLIDES]</a>  -->
+             <p>
+
+                 Waarom zou je eigenlijk gebruik maken van open source? Bij veel organisaties en overheden
+                 eeft het begrip open source zonder dat men eigenlijk beseft waar dit voor staat, laat staan
+                 het effectief kan toepassen of het beheer ervan kan faciliteren.
+                 Vicrea gaat aan de hand van een aantal case studies in op de realisatie van open source
+                 projecten, waarbij klantspecifieke maatwerkeisen verenigd worden met community
+                 wenselijkheid. Een aantal open source implementaties bij de Provincies en de realisatie van
+                 het Nationaal Georegister 2.0 dienen als leidraad om een visie te presenteren, die
+                 redenerend vanuit klantperspectief de grote meerwaarde van open source
+                 (zowel tijdens realisatie, implementatie als ook tijdens beheer) aantoont.
+             </p>
+
+          </div>
+
+    </td>
+    <td valign="top">
+        <h2>Vervolg Workshop C: QGIS </h2>
+
+    </td>
+
+</tr>
+
+<tr>
+    <td>
+        <span>16:00</span>
+    </td>
+    <td valign="top" colspan="3">
+        <h2>En nu verder! </h2>
+
+        <p>
+            In 20 minuten tijd kijken we terug op de dag: heeft het de organiserende partijen gebracht
+            wat ze er van verwachten en geldt dat ook voor het publiek?
+            Wat voor antwoorden heeft de dag opgeleverd? En wat voor vragen en wensen zijn naar
+            boven gekomen, wie gaan dat oppakken, en welke rol zien de TU Delft en OSGeo.nl daarbij
+            voor zichzelf weggelegd?
+            Onder leiding van GIS Magazine hoofdredacteur Remco Takken worden de onderwijsstaf van
+            de Msc Geomatics, onderzoekers van OTB/sectie GIS technologie en het bestuur van
+            OSGeo.nl hierover aan de tand gevoeld. En zoals een “open” event betaamt zijn de vragen
+            en suggesties van de bezoekers daarbij essentiële input.
+        </p>
+
+
+    </td>
+</tr>
+
+
+<tr>
+    <td>
+        <span>16:20</span>
+    </td>
+    <td style="text-align:center;" colspan="3">
+        <strong>OSGeo.nl Borrel !</strong>
+    </td>
+</tr>
+
+</table>
+
+</td>
+<td style="width:25%; height:100%;
+          background-color:#FFFFFF; padding-left: 8px; border: 1px solid #49A942; color:#49A942;vertical-align: top">
+
+    <p class="wit">
+        Hiernaast staat het volledige programma (kleine wijzigingen voorbehouden) van de OSGeo.nl Dag 2013.
+        Zoals u kunt zien bieden we een breed programma voor een divers publiek.
+        In de presentaties en workshops staan ook praktische toepassingen centraal,
+        waardoor niet alleen een beeld wordt gegeven van de technische mogelijkheden,
+        maar het publiek ook wordt meegenomen in de wijze
+        waarop diverse partijen open source software in hun dagelijkse praktijk toepassen.
+        Naast gebruik van software is er in presentaties en workshops
+        aandacht voor de wijze waarop open data
+        gebruikt kan worden om bijvoorbeeld zelf kaarten te maken.
+    </p>
+
+    <h2>Sponsors</h2>
+
+    <p class="wit">
+        OSGeo.nl dankt de sponsors. Zij ondersteunen structureel onze community via de stichting en maken het
+        daardoor ook mogelijk dat we dit event laagdrempelig kunnen aanbieden.
+        Wilt u ook OSGeo.nl sponsoren? Kijk dan <a href="http://wiki.osgeo.org/wiki/Nederlands/Sponsoring">hier in ons
+        sponsorplan</a>.
+    </p>
+
+    <h3>Goud</h3>
+
+    <div style="text-align: center">
+        <a href="http://www.opengeogroep.nl"><img src="media/logo-opengeogroep.gif" border="0" width="180"
+                                                  alt="OpenGeoGroep" title="OpenGeoGroep"/></a>
+    </div>
+
+    <div style="text-align: center">
+        <a href="http://geocat.net"><img src="media/logo-geocat.png" border="0" width="180" alt="GeoCat bv - Government geographic data publishing"
+        title="GeoCat bv - Government geographic data publishing"/></a>
+    </div>
+    <h3>Zilver</h3>
+
+    <div style="text-align: center">
+        <a href="http://geo-academie.nl"><img src="media/logo-geoacademie.png" border="0" width="120"
+                                                     alt="geo-academie" title="geo-academie"/></a>
+    </div>
+    <div style="text-align: center">
+        <a href="http://terglobo.nl"><img src="media/logo-terglobo-s.png" border="0" width="120"
+                                          alt="Terglobo" title="Terglobo"/></a>
+    </div>
+    <div style="text-align: center">
+        <a href="http://www.justobjects.nl"><img src="media/logo-justobjects.png" border="0" width="120"
+                                                 alt="Just Objects" title="Just Objects"/></a>
+    </div>
+
+    <h2>Inschrijven</h2>
+
+    <p class="wit">
+        Via de OTB TU Delft:
+        <a href="http://www.bk.tudelft.nl/nl/over-faculteit/afdelingen/otb/actueel/agenda/event/detail/osgeonl-dag-2013">aanmelden
+            en meer informatie</a>. De kosten voor de OSGeo.nl Dag bedragen € 100,-.
+    </p>
+
+    <h2>Sociaal</h2>
+
+    <p class="wit">
+
+        Tussen de programmaonderdelen is er ruimschoots gelegenheid om onderling
+        ervaringen uit te wisselen.
+        Gedurende de lunch is er ook een "bedrijvenmarkt" waarop u kennis kunt maken met onze sponsors.
+        Er wordt afgesloten met een netwerkborrel.
+    </p>
+
+    <h2>Media</h2>
+
+    <p class="wit">
+        Om een indruk te geven wat u kunt verwachten:
+        <a href="http://www.flickr.com/photos/tags/osgeonldag12/show/">bekijk de foto's van de OSGeo.nl Dag 2012 dag als
+            slideshow op
+            Flickr</a> of
+        via de tag <a href="http://www.flickr.com/photos/tags/osgeonldag12">osgeonldag12</a>.
+        <br/>
+        Op 13 nov foto's
+     op Flickr met de tag <strong>osgeonldag13</strong>.  Als Twitter tag gebruiken we dan <strong>#osgeonl</strong>.
+    </p>
+
+    <h2>Organisatie</h2>
+
+    <p class="wit">
+        Deze dag wordt georganiseerd in samenwerking met
+        <a href="http://www.bk.tudelft.nl/nl/over-faculteit/afdelingen/otb" target="_blank">het OTB van de faculteit
+            Bouwkunde TU Delft</a>.
+               Vanuit OTB is de organisatie in handen van
+                <a href="http://www.otb.tudelft.nl/en/about-otb/staff/alle-medewerkers/verbree-edward/" target="_blank">Edward Verbree</a>,
+                <a href="http://www.linkedin.com/in/wilkoquak" target="_blank">Wilko Quak</a>,
+        <a href="http://www.otb.tudelft.nl/en/about-otb/staff/alle-medewerkers/fendel-elfriede" target="_blank">Elfriede Fendel</a> en
+        <a href="http://www.otb.tudelft.nl/en/about-otb/staff/alle-medewerkers/swarttouw-hofmeijer-christel" target="_blank">Christel Swarttouw-Hofmeijer</a>,
+    </p>
+
+    <p class="wit">
+
+        Vanuit <a href="http://osgeo.nl">OSGeo.nl</a> wordt de algehele coördinatie en organisatie verzorgd
+        door <a href="mailto:geejee@dds.nl">Gert-Jan van der Weijden</a> en
+        <a href="mailto:r.nijssen@terglobo.nl">Raymond Nijssen</a> met hulp van
+        het OSGeo.nl bestuur en vrijwilligers uit de OSGeo.nl community.
+    </p>
+
+
+    <h2>Locatie </h2>
+
+    <p class="wit">
+
+        De OSGeo.nl Dag vindt plaats op de
+        <a href="http://www.openstreetmap.org/#map=20/52.00569/4.37021" target="_blank">Technische Universiteit Delft – Faculteit Bouwkunde
+            - Julianalaan 134. 2628 BL Delft
+        </a>. Zalen: OostSerre, Zaal B, Zaal K, Geolab. (Routebeschrijving volgt).
+    </p>
+
+
+</td>
+</tr>
+</table>
+
+
+<!-- DIVs (boxen) met uitleg over de sessies) -->
+<div id="meerJust" class="hidden"
+     style="position:absolute; left:5%; top:80px; width:25%;
+              background-color:#FFFFFF; border: 1px solid #555555; color:#49A942; padding:4px; overflow:hidden;
+              moz-opacity:0.9; opacity:0.9; filter:alpha(opacity=90);
+              font-style:italic"
+     onClick="javascript:toggleHide('meerJust');">
+    <div class="popup">
+        <p style="text-align: center"><a href="#">[Sluiten]</a></p>
+
+        <p>
+            Just is an independent professional specialized in Free and Open Source
+            Software for Geospatial (FOSS4G) also known as Open Source GIS.
+            Since 1997 he operates through his personal company
+            <a target="_new" href="http://www.justobjects.nl">Just Objects BV</a>, initially as an
+            architect/consultant specialized in Object Oriented software development in Java.
+        </p>
+
+        <p>
+            After having developed several online GPS-games like Frequency 1550 at <a target="_new"
+                                                                                      href="http://www.waag.org">Waag
+            Society</a> back
+            in 2004, and having been fascinated by maps from an early age, he found his final
+            destination in the domain of FOSS4G.
+            He has contributed to and has initiated various Open Source geospatial projects
+            and aims to be a more regular mapper for OpenStreetMap.
+            Just is the trailblazer ("kwartiermaker") for <a target="_new" href="http://osgeo.nl">OSGeo.nl</a>
+            the Dutch chapter for OSGeo.org and is a member of the <a target="_new" href="http://www.opengeogroep.nl">Dutch
+            OpenGeoGroep</a>.
+        </p>
+    </div>
+</div>
+
+<!-- *********************************************** -->
+
+<div id="meerEdward" class="hidden"
+     style="position:absolute; left:5%; top:200px; width:50%;
+              background-color:#FFFFFF; border: 1px solid #555555; color:#49A942; padding:4px; overflow:hidden;
+              moz-opacity:0.9; opacity:0.9; filter:alpha(opacity=90);
+              font-style:italic"
+     onClick="javascript:toggleHide('meerEdward');">
+    <div class="popup">
+        <p style="text-align: center"><a href="#">[Sluiten]</a></p>
+
+
+        <p>
+            Edward Mac Gillavry is werkzaam bij Webmapper,
+            dat zich richt op het maken van gebruiksvriendelijke kaartapplicaties voor het (mobiele) Web
+            en levert advies op het gebied van Web-cartografie en online GIS.
+            Hij was tot begin 2009 Product Manager Location-Based Services (LBS) bij TomTom.
+            Eerder werkte Edward als kartograaf bij de Nationale Atlas voor Volksgezondheid en begon zijn loopbaan bij
+            Multimap,
+            dat inmiddels deel uitmaakt van Bing Maps UK.
+            Edward is lid van Geo-Informatie Nederland en de British Cartographic Society.
+            Hij trad op als technisch redacteur van de O'Reilly publicatie "Mapping Hacks" (2005) over
+            Webcartografie en droeg bij aan de "International Encyclopedia of Human Geography" (2009) van
+            Elsevier met een artikel over de nieuwste ontwikkelingen in de cartografie.
+            Hij studeerde cartografie aan de Universiteit Utrecht en het ITC in Enschede.
+        </p>
+    </div>
+</div>
+
+<!-- *********************************************** -->
+
+<div id="meerMilo" class="hidden"
+     style="position:absolute; left:5%; top:360px; width:50%;
+              background-color:#FFFFFF; border: 1px solid #555555; color:#49A942; padding:4px; overflow:hidden;
+              moz-opacity:0.9; opacity:0.9; filter:alpha(opacity=90);
+              font-style:italic"
+     onClick="toggleHide('meerMilo')">
+    <div class="popup">
+
+        <p style="text-align: center"><a href="#">[Sluiten]</a></p>
+
+
+        <p>
+            Milo van der Linden is zelfstandig open source GIS consultant, voorzitter van de OpenGeoGroep en eigenaar
+            van de LinkedIn GIS group. Sinds 2007 is Milo betrokken bij OpenStreetMap, waarbij hij met name actief is in
+            Vught en op Aruba. Als Geo-Informaticus is Milo geinteresseerd in het "crowd-effect" ten opzichte van
+            traditionele inwin-technieken. Om deze reden zoekt hij vooral naar manieren om de OpenStreetMap gemeenschap
+            te vergroten door het verlagen van (technische) drempels en het enthousiast uitleggen wat OpenStreetMap is
+            en hoe iedereen mee zou kunnen doen.
+        </p>
+    </div>
+</div>
+
+<!-- *********************************************** -->
+
+
+<div id="meerJW" class="hidden"
+     style="position:absolute; left:5%; top:100px; width:50%;
+              background-color:#FFFFFF; border: 1px solid #555555; color:#49A942; padding:4px; overflow:hidden;
+              moz-opacity:0.9; opacity:0.9; filter:alpha(opacity=90);
+              font-style:italic;"
+     onClick="toggleHide('meerJW')">
+    <div class="popup">
+        <p style="text-align: center"><a href="#">[Sluiten]</a></p>
+
+
+        <p>
+            Jan-Willem van Aalst is in 1970 geboren in Vlissingen. In 1995 rondde hij de studie "Technische Informatica"
+            aan de TU Delft af. De afstudeerscriptie ontving de NGI ASI Gouden Bit award in 1996 voor de beste
+            Informatica
+            scriptie.
+            In 1996 volgde een promotieonderzoek naar de invoering van kennismanagement in projectgerichte organisaties.
+            Eind 2005 richtte Jan-Willem het adviesbureau <a target="_blank" href="http://imergis.nl/"> "Imergis
+            organisatiebloei"</a>
+            op,
+            met het doel om vanuit een onafhankelijke positie partijen in ketenvraagstukken met elkaar te kunnen
+            verbinden,
+            op niveaus van hoofd,
+            hart en wil. Aandacht voor de menselijke drijfveren staat centraal: "Bloei komt uit energie".
+        </p>
+
+        <p>
+            Met Imergis richt Jan-Willem zich op informatievoorziening, wat voor steeds meer ketens neerkomt
+            op geografische informatievoorziening.
+            Jan-Willem vertaalt dat praktisch als "alle informatie die zinvol op een kaart getoond kan worden".
+            Imergis adviseert ondermeer over het maken, gebruiken en beheren van geografische informatie.
+            Jan-Willem's passie voor cartografische vormgeving gaat terug naar 1978. Zijn kaarten zijn ondermeer
+            te vinden op de Wikipedia pagina's van de grote steden en van Veiligheidsregio's.
+            Overig kaartmateriaal is te vinden op <a target="_blank" href="http://www.imergis.nl/asp/44.asp">http://www.imergis.nl/asp/44.asp</a>.
+            Jan-Willem twittert via <a target="_blank"
+                                       href="https://twitter.com/#!/janwillemvaalst">@janwillemvaalst</a>.
+        </p>
+    </div>
+</div>
+
+<!-- *********************************************** -->
+
+
+<div id="meerHerman" class="hidden"
+     style="position:absolute; left:25%; top:550px; width:50%;
+              background-color:#FFFFFF; border: 1px solid #555555; color:#49A942; padding:4px; overflow:hidden;
+              moz-opacity:0.9; opacity:0.9; filter:alpha(opacity=90);
+              font-style:italic;"
+     onClick="toggleHide('meerHerman')">
+    <div class="popup">
+        <p style="text-align: center"><a href="#">[Sluiten]</a></p>
+
+
+        <p>
+            <a target="_blank" href="http://www.linkedin.com/pub/herman-assink/2/991/874">Herman Assink</a> is directeur
+            en eigenaar van <a target="_blank" href="http://www.idgis.nl">IDgis B.V.</a>.
+            IDgis is een advies- en ontwikkelingsbureau op het gebied van geografische informatiesystemen (GIS).
+            IDgis ontwikkelt met Open Source software conform Open Standaarden.
+        </p>
+    </div>
+</div>
+
+<!-- *********************************************** -->
+
+
+<div id="meerPaul" class="hidden"
+     style="position:absolute; left:40%; top:200px; width:30%;
+              background-color:#FFFFFF; border: 1px solid #555555; color:#49A942; padding:4px; overflow:hidden;
+              moz-opacity:0.9; opacity:0.9; filter:alpha(opacity=90);
+              font-style:italic;"
+     onClick="toggleHide('meerPaul')">
+    <div class="popup">
+        <p style="text-align: center"><a href="#">[Sluiten]</a></p>
+
+
+        <p>
+            <a target="_blank" href="http://www.linkedin.com/in/paulvangenuchten">Paul van Genuchten</a> is software
+            ontwikkelaar bij <a target="_blank" href="http://www.geocat.net">GeoCat</a> in Bennekom. GeoCat is de
+            oprichter van en een belangrijke
+            bijdrager aan het Geonetwork Opensource project, wat onder andere als basis wordt gebruikt voor het
+            Nationaal Georegister.
+            Geocat legt zich voor haar wereldwijde klantenkring toe op advies en ontwikkeling van Spatial Data
+            Infrastructures.
+            Om deze processen verder te faciliteren is een ArcGIS Desktop extensie ontwikkeld om geo(meta)data te
+            publiceren in
+            Open Source componenten: <a target="_blank" href="http://www.geocat.net/bridge">de Geocat Bridge</a>.
+        </p>
+    </div>
+</div>
+
+<!-- *********************************************** -->
+
+
+<div id="meerOSGeo" class="hidden"
+     style="position:absolute; left:40%; top:120px; width:30%;
+              background-color:#FFFFFF; border: 1px solid #555555; color:#49A942; padding:4px; overflow:hidden;
+              moz-opacity:0.9; opacity:0.9; filter:alpha(opacity=90);
+              font-style:italic;"
+     onClick="toggleHide('meerOSGeo')">
+    <div class="popup">
+        <p style="text-align: center"><a href="#">[Sluiten]</a></p>
+
+        <p>
+            Introductie-presentatie waarin een overzicht wordt gegeven van de belangrijkste
+            spelers, componenten, ontwikkelingen en hun samenhang/toepassing op de het gebied van Open Source Geo-ICT.
+            Met name zal ook het gebruik van Open Source Geo-ICT in Nederland besproken worden.
+            Software componenten zullen worden getoond aan de hand van de <strong><a href="http://live.osgeo.org/">OSGeo
+            Live DVD</a></strong>,
+            een DVD met meer dan 55 componenten en programma's. De OSGeo Live DVD is ook onderdeel van het pakket dat
+            iedere deelnemer
+            aan de OSGeo.nl Dag krijgt.
+        </p>
+    </div>
+</div>
+
+<!-- *********************************************** -->
+
+
+<div id="meerRoy" class="hidden"
+     style="position:absolute; left:40%; top:120px; width:30%;
+              background-color:#FFFFFF; border: 1px solid #555555; color:#49A942; padding:4px; overflow:hidden;
+              moz-opacity:0.9; opacity:0.9; filter:alpha(opacity=90);
+              font-style:italic;"
+     onClick="toggleHide('meerRoy')">
+    <div class="popup">
+        <p style="text-align: center"><a href="#">[Sluiten]</a></p>
+
+
+        <p>
+            <a target="_blank" href="http://www.linkedin.com/in/roybraam">Roy Braam</a> is Open Source GIS Software
+            Engineer bij
+            <a target="_blank" href="http://www.b3partners.nl">B3Partners BV</a> en een van de voornaamste ontwikkelaars
+            van Flamingo.
+        </p>
+    </div>
+</div>
+
+<!-- *********************************************** -->
+
+
+<div id="meerErikR" class="hidden"
+     style="position:absolute; left:5%; top:550px; width:50%;
+              background-color:#FFFFFF; border: 1px solid #555555; color:#49A942; padding:4px; overflow:hidden;
+              moz-opacity:0.9; opacity:0.9; filter:alpha(opacity=90);
+              font-style:italic;"
+     onClick="toggleHide('meerErikR')">
+    <div class="popup">
+        <p style="text-align: center"><a href="#">[Sluiten]</a></p>
+
+
+        <p>
+
+            <a target="_blank" href="http://www.solidlinks.nl/">Erik Romijn</a> houdt zich nu een ruim
+            jaar bezig met o.a. het ontwikkelen van apps op basis van open
+            (geo)data, en heeft voor zijn apps onder andere de
+            <a target="_blank" href="http://www.hackdeoverheid.nl/apps-for-the-netherlands-gold-silver-and-bronze/">3e
+                prijs bij de Apps voor Nederland-wedstrijd</a> en,
+            in een team, de hoofd- en publieksprijs van Apps voor Amsterdam gewonnen. Hij vertelt over zijn
+            ervaringen als app maker in de wereld van de geodata, en zijn visie op het toegankelijker maken van
+            geodata voor niet-ingewijden.
+        </p>
+
+    </div>
+</div>
+
+<!-- *********************************************** -->
+
+<div id="meerSteven" class="hidden"
+     style="position:absolute; left:5%; top:350px; width:50%;
+              background-color:#FFFFFF; border: 1px solid #555555; color:#49A942; padding:4px; overflow:hidden;
+              moz-opacity:0.9; opacity:0.9; filter:alpha(opacity=90);
+              font-style:italic;"
+     onClick="toggleHide('meerSteven')">
+    <div class="popup">
+        <p style="text-align: center"><a href="#">[Sluiten]</a></p>
+
+
+        <p>
+            Steven M. Ottens is werkzaam bij Geodan Research, de onderzoeksafdeling van Geodan BV, als Ux Designer.
+            Hij werkt al jaren actief mee met verschillende open source geo-software pakketten.
+            Binnen Geodan Research werkt hij aan het ontwerpen van nieuwe toepassingen van geo-informatie in nieuwe
+            vakgebieden
+            en het toepassen van nieuwe technologieën binnen de wereld van geo-informatie.
+            Hij heeft aan de universiteit van Wageningen een master GIS gevolgd en zijn eigen design bedrijf gehad.
+            Bij Geodan Research heeft hij EduGIS mede-ontwikkeld en daar het projectieprobleem van RD naar web mercator
+            uitgebreid uitgezocht.
+        </p>
+
+    </div>
+</div>
+
+
+<!-- *********************************************** -->
+
+<div id="meerThijs" class="hidden"
+     style="position:absolute; left:5%; top:550px; width:50%;
+              background-color:#FFFFFF; border: 1px solid #555555; color:#49A942; padding:4px; overflow:hidden;
+              moz-opacity:0.9; opacity:0.9; filter:alpha(opacity=90);
+              font-style:italic;"
+     onClick="toggleHide('meerThijs')">
+    <div class="popup">
+        <p style="text-align: center"><a href="#">[Sluiten]</a></p>
+
+
+        <p>
+            Tijdens zijn studie Sociale Geografie kwam Thijs in aanraking met GIS en hij werd meteen verliefd.
+            Na het afronden van zijn studie ging Thijs bij Rijkswaterstaat met desktop GIS aan de slag.
+            Hij was altijd al geïnteresseerd in innovatie, dus toen Web GIS (ArcIMS) zijn intrede deed,
+            sloot hij zich aan bij een groot innovatief programma van Rijkswaterstaat.
+            Dit resulteerde uiteindelijk in de implementatie van web GIS binnen de organisatie.
+            Uiteindelijk kwam alles samen in het GeoServices project dat rond 2003 gestart werd:
+            GIS, open standaarden en open source software.
+            <br/>
+            Thijs werkt nog steeds als senior adviseur bij Rijkswaterstaat is daar verantwoordelijk voor het GeoServices
+            project.
+        </p>
+
+    </div>
+</div>
+
+<!-- *********************************************** -->
+
+<div id="meerAllart" class="hidden"
+     style="position:absolute; left:5%; top:550px; width:50%;
+              background-color:#FFFFFF; border: 1px solid #555555; color:#49A942; padding:4px; overflow:hidden;
+              moz-opacity:0.9; opacity:0.9; filter:alpha(opacity=90);
+              font-style:italic;"
+     onClick="toggleHide('meerAllart')">
+    <div class="popup">
+        <p style="text-align: center"><a href="#">[Sluiten]</a></p>
+
+        <p>
+            Allart Kooiman (Sovon vogelonderzoek) heeft WebObs ontwikkeld.
+            WebObs is een HTML5 applicatie waarmee via smartphones op een eenvoudige wijze natuurwaarnemingen kunnen
+            worden doorgegeven.
+            In een klein jaar tijd zijn al meer als 100.000 waarnemingen ingevoerd door bijna 500 gebruikers.
+            In de presentatie wordt eerst ingaan op hoe HTML5 is toegepast binnen de applicatie en welke problemen er
+            nog zijn,
+            daarna wordt er wat dieper ingezoomd op de giscomponenten in de WebObs,
+            zoals het gebruik van OpenLayers en het offline krijgen en gebruiken van kaarten.
+        </p>
+
+    </div>
+</div>
+
+<!-- *********************************************** -->
+
+<div id="meerJackEnErik" class="hidden"
+     style="position:absolute; left:5%; top:550px; width:50%;
+              background-color:#FFFFFF; border: 1px solid #555555; color:#49A942; padding:4px; overflow:hidden;
+              moz-opacity:0.9; opacity:0.9; filter:alpha(opacity=90);
+              font-style:italic;"
+     onClick="toggleHide('meerJackEnErik')">
+    <div class="popup">
+        <p style="text-align: center"><a href="#">[Sluiten]</a></p>
+
+
+        <p>
+            <strong>Jack Schoenmakers</strong>
+            <br/>
+            Na zijn opleiding, Landinrichtingswetenschappen aan de universiteit van Wageningen,
+            werd hij Docent Ruimtelijke Ordening en GIS op Hogeschool Larenstein.
+            Met ingang van het studiejaar 2011/2012 is hij daar coördinator van de major GeoInformatiekunde binnen
+            de opleiding Land en Watermanagement.
+            <br/>
+            Hij verzorgt mede de Post HBO cursus GeoInfomatica bij Larenstein Trainingen & Cursussen en gaf in
+            company cursussen bij het Kadaster en de Provincie Gelderland.
+            <br/>
+            Binnen de GIS groep van Larenstein Velp (4 docenten) ligt bij hem het accent op:
+        </p>
+        <ul>
+            <li>Customizing: VBA en Addin technologie in ArcGIS en Python in Quantum GIS,
+            <li>Databases (ook PostGis), datastandaarden (o.m. IMRO) en basisregistraties (BAG)
+            <li>Internet databronnen en Web GIS technieken (o.m. Geoserver en Open Layers)
+        </ul>
+
+
+        <p>
+            <strong>Erik Meerburg</strong>
+            <br/>
+            Erik Meerburg werd na zijn studie Geodesie aan de TU Delft docent Geodesie aan het ROC Oost-¬Nederland.
+            Daarna is hij altijd werkzaam geweest in de geo-¬informatie sector:
+            eerst bij de provincie Gelderland, vervolgens als afdelingshoofd GEO bij het Ministerie van VROM en
+            tot slot als consultant bij ESRI Nederland.
+            <br/>
+            In de afgelopen tien jaar heeft hij een brede kennisbasis ontwikkeld van gebruiksaspecten van GIS en
+            geo-informatie.
+            <br/>
+            In 2010 heeft hij het initiatief genomen voor de oprichting van de Geo Academie. Hij is daarin zowel
+            directeur als docent.
+        </p>
+
+    </div>
+</div>
+
+<!-- *********************************************** -->
+
+<div id="meerRobert" class="hidden"
+     style="position:absolute; left:5%; top:350px; width:50%;
+              background-color:#FFFFFF; border: 1px solid #555555; color:#49A942; padding:4px; overflow:hidden;
+              moz-opacity:0.9; opacity:0.9; filter:alpha(opacity=90);
+              font-style:italic;"
+     onClick="toggleHide('meerRobert')">
+    <div class="popup">
+        <p style="text-align: center"><a href="#">[Sluiten]</a></p>
+
+        <p>
+            In de presentatie gaan we in op de informatie die we binnen de brandweer gebruiken.
+            We laten aan de hand van praktijkincedenten het proces zien van de preperatieve inzameling,
+            het koppelen met de basisregistraties, het serveren van voornamelijk geo info richting de operationele
+            eenheden.
+            <br/>
+            Daarbij wordt ingegaan op wat de de meerwaarde van oa de opensource geo producten zijn,
+            we gebruiken Mapwindows, GIS, QGIS, Geoserver, GDAL, Openlayers, Geoserver, PHP, Java, Apache
+        </p>
+
+    </div>
+</div>
+
+
+</body>
+</html>
+
+
+
+
