@@ -1,0 +1,309 @@
+Diverse voorbeelden/opgaven
+===========================
+
+SELECT queries kan je in principe in QGis uitvoeren, als er een spatial kolom en een unieke integer kolom in het resultaat zitten
+kan je het resultaat laden als laag in de kaart.
+
+Alle andere queries kan je NIET in QGis uitvoeren, daarvoor moet je pgAdmin (of phpPgAdmin, of de commandline console) gebruiken.
+
+Een kijkje in de binnenkant van de geometry
+-------------------------------------------
+select st_astext(geom) as alstekst
+  , st_x(geom) as xcoord
+  , st_y(geom) as ycoord
+  , st_srid(geom) as srid
+  , st_geometrytype(geom) as geomtype1
+  , geometrytype(geom) as geomtype2
+from cursus.vindplaats;
+
+Het magische getal 28992 is het nederlandse coordinaatsysteem (RD New in ArcGIS termen).
+
+Voor een polygoon is ook de oppervlakte (direct maar voor alle 12002 buurten) beschikbaar:
+select bu_naam, st_area(geom) as oppervlakte
+from cursus.buurt
+
+Enkele klassieke GIS operaties
+------------------------------
+1. Spatial join
+Zoek de naam van de gemeente bij elke vindplaats
+
+select gm_naam, vp_nr
+from cursus.gemeente g
+join cursus.vindplaats v
+  on st_intersects(v.geom, g.geom)
+
+2. Telling vindplaatsen voor gemeente Apeldoorn
+
+select count(*)
+from cursus.gemeente g
+join cursus.vindplaats v
+  on st_intersects(v.geom, g.geom)
+where gm_naam = 'Apeldoorn'
+
+3. Telling vindplaatsen voor alle gemeeenten
+
+select gm_naam, count(*)
+from cursus.gemeente g
+join cursus.vindplaats v
+  on st_intersects(v.geom, g.geom)
+group by gm_naam
+
+4. Buffers
+Maak een buffer van 5000 m om de stations:
+
+select gid, naam, st_buffer(geom,5000)
+from cursus.station
+
+Toon nu deze laag in QGis, selecteer daarvoor in het SQL window de optie "Load as new layer".
+
+5. Proximity - afstand
+Welke buurten liggen binnen 2km van station Apeldoorn?
+- Zoek eerst uit hoe je Utrecht Centraal selecteert uit de station tabel (met een WHERE clausule)
+- Join de buurt tabel met de station tabel en doe dat met de st_dwithin functie:
+  st_dwithin(geometry a, geometry b, distance)
+ (vergelijk met de st_intersects uit opgave 1)
+  
+select b.gid, bu_naam
+from cursus.buurt b
+join cursus.station s
+  on ...
+where s.naam = 
+
+select b.gid, bu_naam, s.naam
+from cursus.buurt b
+join cursus.station s
+  on st_dwithin(s.geom, b.geom, 2000)
+where s.naam = 'APELDOORN'
+
+Hoe zou je deze buurten nu kunnen tonen in QGis?
+
+6. Proximity - raken van polygonen
+Een andere interessante optie is om niet zomaar te kijken welke buurten binnen 2km van het station liggen, maar om te kijken welke buurten
+grenzen aan de buurt waarin het station staat. ST_Touches stelt je in staat om te kijken wie je 'buren' zijn, dit kan over meerdere tabellen
+maar ook binnen een tabel.
+
+Voorbeeld: vind alle buurten aangrenzend aan de buurt waarin een station ligt, opnieuw voor de stad Apeldoorn.
+Eerst maar eens de juiste wijk vinden (met geometry!):
+
+select bu_naam, b.geom
+from cursus.buurt b
+join cursus.station s
+  on ST_Within(s.geom, b.geom)
+where s.naam = 'APELDOORN'
+
+Deze query gebruiken we als input om aangrenzende wijken te vinden, en voor de leesbaarheid gebruiken we een CTE (Common Table Expression).
+Het volgende voorbeeld toont hoe een CTE werkt:
+
+with stationsbuurt as (
+  select bu_naam, b.geom
+  from cursus.buurt b
+  join cursus.station s
+    on ST_Within(s.geom, b.geom)
+  where s.naam = 'APELDOORN')
+select *
+from stationsbuurt
+
+Nu de uitbreiding met de koppeling aan de oorspronkelijke buurt tabel om de aangrenzende buurten te vinden:
+with stationsbuurt as (
+  select bu_naam, b.geom
+  from cursus.buurt b
+  join cursus.station s
+    on ST_Within(s.geom, b.geom)
+  where s.naam = 'APELDOORN')
+select b.bu_naam
+from cursus.buurt as b
+join stationsbuurt as sb
+  on ST_Touches(sb.geom, b.geom)
+;
+
+Ook deze query kan in QGis als layer tonen, maar dan moet je wel het gid en de geometry toevoegen. Detail: de stationswijk zelf is weg!
+Deze kan je er ook wel weer in krijgen, door te testen of de geometry overeenkomt met die in de stationsbuurt query:
+
+ST_Equals(sb.geom, b.geom)
+Waar zou je deze code moeten plaatsen?
+
+! Gebruik nooit = voor het vergelijken van geometrieen, dat gaat een keer fout.
+
+7. Centrumpunten
+Nog een oude bekende: maak centrumpunten van polygonen. Dit werkt met de functie ST_PointOnSurface(geometry).
+Probeer centrumpunten van een gemeente te maken, en deze eerst als tekst te tonen in de tabel, en daarna als
+laag in QGis in te lezen.
+Het weergeven van de inhoud van de spatial kolom kan met st_astext(geometry). Je moet de beide functies dus
+nesten, dwz binnen elkaar gebruiken: ST_AsText(ST_PointOnSurface(geometry))
+
+select gid, gm_naam, st_pointonsurface(geom)
+from cursus.gemeente
+
+8. Union/dissolve
+Uit de buurtenkaart kunnen we een wijkenkaart maken (die bestaat al, maar het is een oefening). Dit doen we
+voor de gemeente Apeldoorn. Het veld wk_code bevat de codes voor de wijken. Let op: union is hier dus ongeveer
+wat dissolve is in ArcGIS.
+De functie st_union(geometry) werkt net als bijvoorbeeld sum(kolom), waarbij je een group by kan gebruiken. Gebruik
+ook een where om alleen de gemeente Apeldoorn te selecteren.
+
+select wk_code, st_union(geom)
+from cursus.buurt
+where gm_naam = 'Apeldoorn'
+group by wk_code
+
+Probleem: dit kan je niet in QGis laden, omdat er geen kolom met uniek integer id is (de wijk code is helaas
+geen integer)... Je moet dus een nieuwe tabel maken, met een autonummer veld, en daar de data invoegen. Dit kan
+niet vanuit QGis, je zult daar pgAdmin of een commandline voor moeten gebruiken.
+
+Maak de tabel:
+
+create table apeldoorn_wijken (id serial primary key
+  , wk_code text
+  , geom geometry(MultiPolygon,28992)
+  )
+;
+
+En voeg de records in met de union/dissolve query (+ foefje om problemen met eventuele multipart polygonen te voorkomen)
+insert into apeldoorn_wijken (wk_code, geom)
+  select wk_code, st_multi(st_union(geom))
+  from cursus.buurt
+  where gm_naam = 'Apeldoorn'
+  group by wk_code
+;    
+
+9. Buffer, intersection, analyze: alles in 1
+In voorgaande opgaven hebben we de klassieke 'intersects' en buffers gezien, de test of geometrieen overlappen. Met intersection
+kan je ook werkelijke intersecties berekenen, met een nieuwe geometry als resultaat. Zoals we al hadden gezien
+kan je in Postgres van alles combineren, en in deze opgave gaan we een schatting doen van het aantal woningen
+binnen 50m van de spoorbaan. Daarvoor gebruiken we de relatieve oppervlakte.
+Dit werkt alleen in pgAdmin of een commandline console, QGis biedt niet de mogelijkheid voor het uitvoeren
+van willekeurige queries (m.n. onmogelijk om tabellen en views te maken).
+
+-- Woningen binnen 50m van het spoor
+-- Stap 1: maak een spoorbuffer tabel aan, wegens ontbreken indexen is
+-- er anders niet mee te werken (in elk geval niet experimenterend)
+-- Maak dus ook de index aan, en stofzuigen.
+CREATE TABLE spoorbuffer AS
+SELECT objectid, naam, ST_Buffer(geom, 50) spoorbuffer
+  FROM cursus.spoorvak
+;
+
+-- Stap 2: zorg voor een index
+CREATE INDEX sidx_spoorbuffer ON spoorbuffer USING gist (spoorbuffer);
+VACUUM ANALYZE spoorbuffer;
+
+-- Stap 3: alles in 1 query: aantal inwoners binnen 50m van spoor, gecorrigeerd voor oppervlakte intersectie-totaal oppervlak buurt
+SELECT bu_naam, round(sum(won_correctie))::INTEGER as aant_inw FROM
+(SELECT bu_naam, aant_inw * (area_intersect/area_buurt) as won_correctie FROM
+  (SELECT bu.gid, bu_naam, aant_inw, ST_Area(ST_Intersection(sb.spoorbuffer, bu.geom)) as area_intersect, ST_Area(bu.geom) as area_buurt
+  FROM cursus.buurt bu
+  JOIN spoorbuffer sb
+    ON ST_Intersects(sb.spoorbuffer, bu.geom)
+  ) ws
+) ws_correctie
+GROUP BY bu_naam
+;
+
+10. Transformatie van coordinaten
+Natuurlijk kan je ook coordinaten transformeren. Hiervoor moet je wel de magische getallen kennen voor de coordinaatsystemen!
+De functie heet ST_Transform(geometry, srid).
+
+Probeer de vindplaatsen naar WGS84 om te zetten (srid = 4326). Breid de volgende code uit, en bekijk de coordinaten
+als tekst (x en y in aparte kolommen). st_x(geometry) en st_y(geometry) geven resp de x en y coordinaten. Probeer dit te doen
+door de eerste query "in te pakken" in een tweede om de x en y eruit te peuteren.
+
+select gid, vp_nr, st_transform( ....., ....) as geom
+from cursus.vindplaats
+
+select gid, vp_nr, st_x(.....) as x, st_y(.....) as y
+from (select gid, vp_nr, st_transform( ....., ....) as geom
+      from cursus.vindplaats) as query1
+
+
+11. Real-time data: automatisch bijwerken
+Deze opdracht moet pgAdmin of de console. We maken een tabel, en voegen daar een functie aan toe die wat triviale processing doet.
+
+create table rt_demo
+(id serial primary key
+  , x_rd float
+  , y_rd float
+  , temp float
+  , geom geometry(Point,4326)
+  , waarschuwing bool default false
+  )
+;
+
+Voeg nu met de hand enkele waarden in voor x_rd, y_rd en temp:
+
+insert into rt_demo (x_rd, y_rd, temp) values (200000, 450000, 34.2);
+insert into rt_demo (x_rd, y_rd, temp) values (210000, 455000, 50.6);
+insert into rt_demo (x_rd, y_rd, temp) values (220000, 452000, 10.7);
+
+Heel leuk, maar je hebt nog geen geometry, en de waarschuwingsvlag is nog niet gezet. Dit kunnen we updaten:
+
+update rt_demo
+  set geom = st_transform(st_setsrid(st_makepoint(x_rd, y_rd), 28992), 4326)
+;
+
+update rt_demo
+  set waarschuwing = true
+  where temp > 50.0
+;
+
+Toch is dit niet leuk, veel liever vullen we direct de waarden in. Dat kan, met behulp van een trigger functie. Dat vergt twee stappen:
+- de functie maken
+- de functie aan de tabel koppelen, zodat die elke keer afgevuurd wordt als er nieuwe data of updates zijn
+
+CREATE FUNCTION rt_demo_update() RETURNS TRIGGER AS
+$$
+BEGIN
+  NEW.geom = st_transform(st_setsrid(st_makepoint(NEW.x_rd, NEW.y_rd), 28992), 4326);
+  IF NEW.temp > 50.0 THEN
+    NEW.waarschuwing = true;
+  END IF;
+  RETURN NEW;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+CREATE TRIGGER rt_demo_update BEFORE INSERT OR UPDATE ON rt_demo
+  FOR EACH ROW EXECUTE PROCEDURE rt_demo_update()
+;
+
+Voeg nu maar eens opnieuw wat data in, en bekijk het resultaat (eventueel refresh van de tabel). Je kan deze tabel ook in QGis laden, handmatig data invoeren en de punten op je scherm zien komen! Let op: de punten zijn nu in het WGS84 coordinaat systeem, QGis moet wel coordinaat transformatie doen wil je de in Nederland zien.
+
+12. Permanente 'views'
+Je kan ook queries maken en die opslaan als view. Dan zijn ze als een soort pseudo-tabel beschikbaar, ook voor QGis en bijv. Geoserver.
+Dit is geheel dynamisch, ze zijn altijd up-to-date, en worden behandeld als een soort macro code als ze opgenomen worden in andere queries.
+Voorbeeld: toon alleen de records van onze rt_demo tabel die geen waarschuwing hebben staan en een geldige geometry. De query is dan:
+
+select id, x_rd, y_rd, temp, geom
+from rt_demo
+where waarschuwing = false
+
+Om er een view van te maken:
+
+create or replace view vw_rt_demo_valid as
+  select id, x_rd, y_rd, temp, geom
+  from rt_demo
+  where waarschuwing = false
+
+Nu is vw_demo_rt_valid een soort virtuele tabel, die kan je zo openen in QGis, of gebruiken in queries.
+
+13. Het index probleem
+Indexen zijn hard nodig, maar gedragen zich niet altijd zoals je verwacht. Voer beide queries uit, welke duurt het langst? Kijk eens naar het aantal regels in de tabellen, is dat logisch?
+select vp_nr, bu_naam
+from cursus.vindplaats a
+join cursus.buurt b
+  on st_within(a.geom, b.geom)
+
+select vp_nr, prvnm
+from cursus.vindplaats a
+join cursus.provincie p
+  on st_within(a.geom, p.geom)
+
+14. Raster hoogtes uitlezen
+Er is een uitsnede van het AHN (25m) in de database, ook als tif file. Dit raster kan je in QGis laden met de database browser. Om het een beetje te bekijken
+kan je de min-max om te beginnen op 0-1000 zetten.
+Uitvragen hoogte voor het vindplaatsen bestand kan dan met een simpele query, we rekenen ook direct de hoogte om naar m (was in cm):
+
+SELECT rid, vp_nr, ST_Value(rast, 1, v.geom) / 100 As ahnval_m
+FROM cursus.ahn25_clip
+CROSS JOIN cursus.vindplaats v
+WHERE ST_Intersects(rast,v.geom);
+
