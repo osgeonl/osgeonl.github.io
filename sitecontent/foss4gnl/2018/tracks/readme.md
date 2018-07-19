@@ -7,7 +7,6 @@ Missen (16/7/18):
 * "HisGIS: van 2D tot 4D" , verviel, vervangend praatje Jan Hartmann?
 * "Wanneer kiezen voor Leaflet of OpenLayers (2,3,4)? Overwegingen vanuit de dagelijkse praktijk." - Peter-Paul Koonings
 * "Locatieserver PDOK" - Steggink et al
-* "How to start your own Remote Sensing company." Arjen Vrielink
 * "Using computational graphs for geographical raster data sets" - Casper van der Wel
 * "Beheren van applicaties ESRI vs OpenSource" - Patrick Smit Ordina
 * "Building an operational high resolution satellite based soil moisture service" - Jaap Schellekens
