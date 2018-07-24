@@ -9,12 +9,12 @@ Missen (16/7/18):
 * "Locatieserver PDOK" - Steggink et al
 * "Using computational graphs for geographical raster data sets" - Casper van der Wel
 * "Building an operational high resolution satellite based soil moisture service" - Jaap Schellekens
-* "PyGeoAPI - Towards a Python Web API for Emerging OGC Standards" - Jorge Mendes de Jesus - GeoCat
 * "Met PICO Nederland duurzaam maken" Arend Jan van der Neut Geodan
 
 WebLinks, dus beschikbaar:
 
 * "Vector Tiling" - Niene Boeijen (weblink: https://nieneb.github.io/foss4gNL_vector_tiles/#/)
 * "NLMaps: samenwerken in kaart viewers" - Edward (weblink: https://emacgillavry.github.io/foss4gnl2018-nlmaps/#/)
+* "PyGeoAPI - Towards a Python Web API for Emerging OGC Standards" - Jorge Mendes de Jesus - GeoCat (weblink: https://geopython.github.io/pygeoapi/presentation)
 
 Zie ook [FOSS4G NL 2018 Programma](https://foss4g.nl/conference/)
