@@ -8,7 +8,6 @@ Missen (16/7/18):
 * "Wanneer kiezen voor Leaflet of OpenLayers (2,3,4)? Overwegingen vanuit de dagelijkse praktijk." - Peter-Paul Koonings
 * "Locatieserver PDOK" - Steggink et al
 * "Using computational graphs for geographical raster data sets" - Casper van der Wel
-* "Beheren van applicaties ESRI vs OpenSource" - Patrick Smit Ordina
 * "Building an operational high resolution satellite based soil moisture service" - Jaap Schellekens
 * "PyGeoAPI - Towards a Python Web API for Emerging OGC Standards" - Jorge Mendes de Jesus - GeoCat
 * "Met PICO Nederland duurzaam maken" Arend Jan van der Neut Geodan
