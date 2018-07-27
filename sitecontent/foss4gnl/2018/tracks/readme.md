@@ -1,12 +1,11 @@
 Hieronder staan presentaties FOSS4GNL 2018 Almere.
 
-Missen (16/7/18):
+Missen (status 27/7/18):
 
 * "Channel Builder en Catchment Builder obv MapWindow" - Siebe Bosch
 * "QGIS gaat 3-D" - JW van Aalst
 * "HisGIS: van 2D tot 4D" , verviel, vervangend praatje Jan Hartmann?
 * "Wanneer kiezen voor Leaflet of OpenLayers (2,3,4)? Overwegingen vanuit de dagelijkse praktijk." - Peter-Paul Koonings
-* "Locatieserver PDOK" - Steggink et al
 * "Using computational graphs for geographical raster data sets" - Casper van der Wel
 * "Building an operational high resolution satellite based soil moisture service" - Jaap Schellekens
 * "Met PICO Nederland duurzaam maken" Arend Jan van der Neut Geodan
