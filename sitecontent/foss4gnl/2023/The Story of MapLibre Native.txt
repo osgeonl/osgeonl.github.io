@@ -1,0 +1,3 @@
+
+Bart Louwers: "Mijn slides waren in HTML en had interactieve kaarten (met data gehost op een Raspberry Pi). Ik heb de kaartdatabron aangepast en de slides online gezet, mocht nog iemand er belang bij hebben."
+https://651ab903fa9a9c12d0b9e321--elegant-semolina-5a8877.netlify.app/1
